@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/create', function () {
+    return view('create');
+});
+Route::post('/create', [PostController::class, 'create']);
+Route::get('/list', [PostController::class, 'list']);
+Route::get('/detail/{id}', [PostController::class, 'show']);
+Route::get('/delete/{id}', [PostController::class, 'destroy']);
+Route::get('/update/{id}', [PostController::class, 'showUpdate']);
+Route::post('/update/{id}', [PostController::class, 'update']);
+Route::post('/comment/{id}',[CommentController::class, 'store']);
+
+
