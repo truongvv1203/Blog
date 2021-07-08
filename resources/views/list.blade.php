@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
   <div class="container">
     <h2 style="font-weight: bold" id="title-blog">List blog</h2>

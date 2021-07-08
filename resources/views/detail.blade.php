@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 @section('content')
     <div class="container" id="title-blog">
         <h1>{{$post['title']}}</h1>

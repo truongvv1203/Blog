@@ -20,13 +20,17 @@ Route::get('/', function () {
 });
 Route::get('/create', function () {
     return view('create');
-});
+})->middleware('auth');
 Route::post('/create', [PostController::class, 'create']);
 Route::get('/list', [PostController::class, 'list']);
-Route::get('/detail/{id}', [PostController::class, 'show']);
+Route::get('/detail/{id}', [PostController::class, 'show'])->middleware('auth');
 Route::get('/delete/{id}', [PostController::class, 'destroy']);
 Route::get('/update/{id}', [PostController::class, 'showUpdate']);
 Route::post('/update/{id}', [PostController::class, 'update']);
 Route::post('/comment/{id}',[CommentController::class, 'store']);
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
